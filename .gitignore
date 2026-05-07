@@ -1,0 +1,37 @@
+# ========== Игнорируемые файлы конфигурации (Безопасность) ==========
+.env
+.env.*
+stack.env
+docker-compose.override.yml
+
+# ========== Python / Среда выполнения ==========
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+ENV/
+
+# ========== Данные и логи (Runtime) ==========
+logs/
+*.log
+data/
+backups/
+*.db
+*.sqlite3
+
+# ========== Инструменты разработки и ОС ==========
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ========== Build / Testing ==========
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/

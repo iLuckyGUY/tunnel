@@ -1,0 +1,15 @@
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: tunnel-cf
+    restart: always
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+      - TUNNEL_TRANSPORT_PROTOCOL=${TUNNEL_PROTOCOL:-quic}
+    command: tunnel run
+    networks:
+      - cloudweb
+
+networks:
+  cloudweb:
+    external: true
