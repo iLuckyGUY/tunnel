@@ -1,11 +1,11 @@
 services:
   cloudflared:
     image: cloudflare/cloudflared:latest
-    container_name: tunnel-cf
+    container_name: cloudflared-tunnel
     restart: always
     environment:
-      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
-      - TUNNEL_TRANSPORT_PROTOCOL=${TUNNEL_PROTOCOL:-quic}
+      - TUNNEL_TOKEN=${CF_TUNNEL_TOKEN}
+      - TUNNEL_TRANSPORT_PROTOCOL=http2  # Чтобы не было проблем с UDP/Buffer size
     command: tunnel run
     networks:
       - cloudweb
