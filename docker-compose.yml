@@ -7,4 +7,9 @@ services:
       - TUNNEL_TOKEN=${CF_TUNNEL_TOKEN}
       - TUNNEL_TRANSPORT_PROTOCOL=${CF_PROTOCOL:-http2}
     command: tunnel --no-autoupdate run
-    network_mode: host
+    networks:
+      - cloudweb
+
+networks:
+  cloudweb:
+    external: true
