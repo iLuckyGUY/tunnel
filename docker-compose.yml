@@ -5,7 +5,7 @@ services:
     restart: always
     environment:
       - TUNNEL_TOKEN=${CF_TUNNEL_TOKEN}
-      - TUNNEL_TRANSPORT_PROTOCOL=${CF_PROTOCOL:-http2}
+      - TUNNEL_TRANSPORT_PROTOCOL=${CF_PROTOCOL:-auto}
     command: tunnel --no-autoupdate run
     networks:
       - cloudweb
