@@ -5,11 +5,6 @@ services:
     restart: always
     environment:
       - TUNNEL_TOKEN=${CF_TUNNEL_TOKEN}
-      - TUNNEL_TRANSPORT_PROTOCOL=http2  # Чтобы не было проблем с UDP/Buffer size
-    command: tunnel run
-    networks:
-      - cloudweb
-
-networks:
-  cloudweb:
-    external: true
+      - TUNNEL_TRANSPORT_PROTOCOL=${CF_PROTOCOL:-http2}
+    command: tunnel --no-autoupdate run
+    network_mode: host
